@@ -26,7 +26,7 @@ router.post('/register',async function(req: Request, res: Response) {
     await newUsers.save()
     return res.status(200).send({
       success: true,
-      result: 'registy success'
+      result: 'register success'
     })
   } catch (error: any) {
     console.log(error)
