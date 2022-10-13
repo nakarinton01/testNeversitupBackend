@@ -29,6 +29,7 @@ router.post('/', verifyToken, async function(req: Request, res: Response) {
               colors: item.colors,
               picture: product[findProduct].picture,
               description: product[findProduct].description,
+              rating : product[findProduct].rating,
             },
             custormer: {
               _id: res.locals.auth._id,

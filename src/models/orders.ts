@@ -12,6 +12,7 @@ const orders = new mongoose.Schema({
     }],
     picture: { type: String },
     description: { type: String },
+    rating : { type: Number },
   },
   custormer: {
     _id: { type: Types.ObjectId },

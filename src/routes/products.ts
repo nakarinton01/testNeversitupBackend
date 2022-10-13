@@ -6,7 +6,7 @@ import { Request, Response } from 'express'
 
 router.get('/', async function(req: Request, res: Response) {
   try{
-    let { limit, page, min, max } = req.query
+    let { limit, page, min, max, rating } = req.query
     let search: any = req.query.search
     let pageAndskip = await mainfunction.limitPage(limit, page)
     
@@ -15,6 +15,7 @@ router.get('/', async function(req: Request, res: Response) {
     search ? Object.assign(query, { name: new RegExp(search, 'i') }) : null
     min ? andCond.push({ price: { $gte: Number(min) } }) : null
     max ? andCond.push({ price: { $lte: Number(max) } }) : null
+    rating ? Object.assign(query, { rating: { $gte: Number(rating) } }) : null
     if(andCond.length) {
       Object.assign(query, { $and: andCond })
     }
